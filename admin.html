@@ -129,6 +129,7 @@
             <div class="tab-btn active" onclick="openTab('productsTab')">المنتجات</div>
             <div class="tab-btn" onclick="openTab('offersTab')">العروض</div>
             <div class="tab-btn" onclick="openTab('categoriesTab')">الأقسام</div>
+            <div class="tab-btn" onclick="openTab('featTab')">المميزة</div>
             <div class="tab-btn" onclick="openTab('bannerTab')">البانر</div>
         </div>
 
@@ -161,6 +162,7 @@
             </div>
         </div>
 
+        <div id="featTab" class="tab-content"><h3>الصور المميزة (أسفل البانر)</h3><div id="featList"></div><button onclick="addFeat()" style="width:100%">➕ إضافة صورة مميزة</button></div>
         <!-- تبويب البانر -->
         <div id="bannerTab" class="tab-content">
             <h3>إعدادات البانر الرئيسي</h3>
@@ -174,7 +176,8 @@
 
     <script>
 let U='',R='',T='';
-const D={products:{},offers:[],categories:{},banner:''},PREV={};
+const D={products:{},offers:[],categories:{},banner:'',featured:[]},PREV={};
+const DEF_FEAT=[{title:'برسيل جل 3 كجم',price:270,img:'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&auto=format&fit=crop'},{title:'ديتول 950 مل',price:75,img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop'},{title:'شامبو صن سيلك',price:90,img:'https://images.unsplash.com/photo-1610555356070-d0efb6505f81?w=500&auto=format&fit=crop'}];
 const $=id=>document.getElementById(id);
 const api=p=>`https://api.github.com/repos/${U}/${R}/contents/${p}`;
 const H=()=>({Authorization:`token ${T}`,'Content-Type':'application/json'});
@@ -199,7 +202,7 @@ async function fetchData(){
  try{
   const p=await getJson('products.json');if(!p)throw new Error('products.json');D.products=p;
   const s=await getJson('site-data.json')||{};
-  D.offers=s.offers||[];D.categories=s.categories||{};D.banner=s.banner||'assets/images/banner.jpg';
+  D.featured=(s.featured&&s.featured.length)?s.featured:DEF_FEAT.map(x=>Object.assign({},x));D.offers=s.offers||[];D.categories=s.categories||{};D.banner=s.banner||'assets/images/banner.jpg';
   return true;
  }catch(e){console.error(e);return false}
 }
@@ -228,6 +231,7 @@ function renderUI(){
   <button class="btn-danger mini" onclick="delOffer(${i})">🗑 حذف العرض</button></div>`).join('');
  $('categoriesList').innerHTML=Object.keys(D.products).map(k=>`<div class="category-card-admin" style="display:flex;gap:12px;align-items:center">
   ${th(D.categories[k],`upCat('${k}')`)}<div><b>${esc(D.products[k].title)}</b><div style="font-size:12px;color:#aaa">اضغط الصورة لتغييرها</div></div></div>`).join('');
+ $('featList').innerHTML=D.featured.map((f,i)=>`<div class="offer-card-admin"><div style="display:flex;gap:10px;align-items:center">${th(f.img,`upFeat(${i})`)}<div style="flex:1"><input type="text" value="${esc(f.title)}" placeholder="اسم المنتج" onchange="D.featured[${i}].title=this.value"><input type="number" value="${esc(f.price)}" placeholder="السعر" onchange="D.featured[${i}].price=Number(this.value)"></div></div><div style="display:flex;gap:8px"><button class="mini" onclick="moveFeat(${i},-1)">⬆</button><button class="mini" onclick="moveFeat(${i},1)">⬇</button><button class="btn-danger mini" onclick="delFeat(${i})">🗑 حذف</button></div></div>`).join('');
  $('bannerBox').innerHTML=th(D.banner,'upBanner()',true)+'<div style="font-size:12px;color:#aaa">اضغط الصورة لتغييرها</div>';
 }
 function openTab(id){document.querySelectorAll('.tab-content').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(e=>e.classList.remove('active'));$(id).classList.add('active');event.target.classList.add('active')}
@@ -250,12 +254,16 @@ function delOffer(i){if(confirm('حذف العرض؟')){D.offers.splice(i,1);ren
 function upProd(c,i){const p=D.products[c].products[i];up('p',p.code,x=>p.image=x)}
 function upOffer(i){up('offer',i,x=>D.offers[i].img=x)}
 function upCat(k){up('cat',k,x=>D.categories[k]=x)}
+function addFeat(){D.featured.push({title:'منتج مميز',price:0,img:''});renderUI()}
+function delFeat(i){if(confirm('حذف الصورة المميزة؟')){D.featured.splice(i,1);renderUI()}}
+function moveFeat(i,d){const j=i+d;if(j<0||j>=D.featured.length)return;[D.featured[i],D.featured[j]]=[D.featured[j],D.featured[i]];renderUI()}
+function upFeat(i){up('feat',i,x=>D.featured[i].img=x)}
 function upBanner(){up('banner','main',x=>D.banner=x)}
 async function saveAll(silent){
  busy(1);
  try{
   await put('products.json',enc(JSON.stringify(D.products,null,2)),'تحديث المنتجات');
-  await put('site-data.json',enc(JSON.stringify({offers:D.offers,categories:D.categories,banner:D.banner},null,2)),'تحديث إعدادات الموقع');
+  await put('site-data.json',enc(JSON.stringify({offers:D.offers,categories:D.categories,banner:D.banner,featured:D.featured},null,2)),'تحديث إعدادات الموقع');const chk=await getJson('site-data.json');if(!chk||chk.banner!==D.banner||(chk.featured||[]).length!==D.featured.length)throw new Error('الملف على GitHub لم يتحدث، حاول مرة أخرى');
   busy(0);if(!silent)alert('تم حفظ جميع التعديلات بنجاح ✅ (التغييرات تظهر على الموقع بعد دقيقة تقريباً)');
  }catch(e){busy(0);alert('فشل الحفظ: '+e.message)}
 }

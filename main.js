@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const hideSplash=()=>{if(done)return;done=true;splash.classList.add('hidden');setTimeout(()=>splash.remove(),1200)};
         if(sv){sv.addEventListener('ended',hideSplash);sv.addEventListener('error',hideSplash);const p=sv.play();if(p&&p.catch)p.catch(hideSplash)}
         setTimeout(hideSplash,sv?6000:3000);
-        const sk=document.getElementById('skipSplash');if(sk)sk.addEventListener('click',hideSplash);
+        
     }
 
     // =========================================
     // 3. تشغيل السلايدر (الصور المميزة والعروض)
     // =========================================
     if (typeof Swiper !== 'undefined') {
-        var swiper = new Swiper(".mySwiper", {
+        var swiper = window.featSwiper = new Swiper(".mySwiper", {
             effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto", loop: true,
             coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
             pagination: { el: ".swiper-pagination" }, autoplay: { delay: 3000, disableOnInteraction: false }
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         // بنضيف data-id عشان site-data-loader يقدر يلاقي الصورة ويغيرها
                         card.setAttribute('data-id', key);
                         card.innerHTML = `<div class="cat-ico" style="background:${g}">${catIco[key]||'🛒'}</div><div class="cat-title">${cat.title}</div>`;
-                        categoriesGrid.appendChild(card);
+                        categoriesGrid.appendChild(card);window.applyCats&&window.applyCats();
                     }
                 }
             }).catch(err => console.error(err));

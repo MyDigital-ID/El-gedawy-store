@@ -1,23 +1,20 @@
 {
+  "banner": "assets/images/banner.jpg",
+  "categories": {},
   "offers": [
     {
       "title": "عرض سائل الصحون",
       "desc": "سائل + إسفنجة + سلك ستانلس",
       "price": 50,
       "oldPrice": 65,
-      "img": "assets/uploads/offer-0-mw7as4fj.jpg"
+      "img": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=500"
     },
     {
       "title": "عرض صابون ديتول",
       "desc": "3 قطع صابون 115 جم",
       "price": 75,
       "oldPrice": 90,
-      "img": "assets/uploads/offer-1-mw7ar9tl.jpg"
+      "img": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=500"
     }
-  ],
-  "categories": {
-    "tissues": "assets/uploads/cat-tissues-mw78u0l4.jpg",
-    "diapers_paste": "assets/uploads/cat-diapers_paste-mw7aoggn.jpg"
-  },
-  "banner": "assets/images/banner.jpg"
+  ]
 }

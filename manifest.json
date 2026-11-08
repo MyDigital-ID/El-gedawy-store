@@ -4,7 +4,7 @@
   "description": "علامة الجودة و المنتجات الأصلية و المعتمدة. تسوق الآن أفضل مستلزمات المنظفات والعناية الشخصية.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#03045e",
+  "background_color": "#d6dfd4",
   "theme_color": "#0077b6",
   "orientation": "portrait",
   "icons": [

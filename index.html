@@ -26,6 +26,7 @@
 
     <!-- 3. ربط ملف PWA (manifest) -->
     <link rel="manifest" href="manifest.json">
+    <link rel="preload" as="image" href="assets/images/splash-poster.jpg">
 
     <!-- 4. ربط الملفات والمكتبات (مسارات نسبية) -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@
 <body>
 
     <!-- 1. شاشة البداية -->
-    <div id="splash-screen"><div class="splash-logo">الجداوي</div><video id="splashVid" src="assets/videos/splash.mp4" autoplay muted playsinline></video><button id="skipSplash">تخطي ⏭</button></div>
+    <div id="splash-screen"><video id="splashVid" poster="assets/images/splash-poster.jpg" src="assets/videos/splash.mp4" autoplay muted playsinline></video></div>
 
     <!-- 2. خلفية الفقاعات -->
     <div class="bubbles-container">
@@ -136,11 +137,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <!-- سكربتات الموقع -->
-    <footer class="site-footer"><a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener" aria-label="MyDigital-ID"><svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="#f7931e" stroke-width="1.6" stroke-linecap="round"><path d="M12 3a8 8 0 0 0-8 8v1"/><path d="M12 6a5 5 0 0 0-5 5c0 3 .5 5.5 1.5 8"/><path d="M12 9a2 2 0 0 0-2 2c0 3 .3 6 1.5 9"/><path d="M16 12c0 3-.4 6-1.5 8.5"/><path d="M20 11a8 8 0 0 0-3-6.2"/><path d="M19.5 14c0 2-.4 4-1 5.5"/><path d="M12 12v1c0 2 .2 4 .8 6"/></svg></a><div>جميع الحقوق محفوظة © <a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener">MyDigital-ID</a></div><small>MyDigital-ID.github.io</small></footer>
+    <footer class="site-footer"><a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener" aria-label="MyDigital-ID"><svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="#f7931e" stroke-width="1.6" stroke-linecap="round"><path d="M12 3a8 8 0 0 0-8 8v1"/><path d="M12 6a5 5 0 0 0-5 5c0 3 .5 5.5 1.5 8"/><path d="M12 9a2 2 0 0 0-2 2c0 3 .3 6 1.5 9"/><path d="M16 12c0 3-.4 6-1.5 8.5"/><path d="M20 11a8 8 0 0 0-3-6.2"/><path d="M19.5 14c0 2-.4 4-1 5.5"/><path d="M12 12v1c0 2 .2 4 .8 6"/></svg></a><div>جميع الحقوق محفوظة © <a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener">MyDigital-ID</a></div></footer>
     <script src="foam.js"></script>
     <script src="cart.js"></script>
     <script src="site-data-loader.js"></script>
     <script src="main.js"></script>
+    <script src="install.js"></script>
 
     <!-- تسجيل الـ Service Worker -->
     <script>

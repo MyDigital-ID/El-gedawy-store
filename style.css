@@ -245,3 +245,6 @@ html,body{margin:0;padding-left:0;padding-right:0}
 .sr-info small{display:block;color:#667}
 .sr-row button{background:#f7931e;color:#fff;border:0;width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer}
 .sr-empty{text-align:center;padding:18px;color:#888}
+
+#splash-screen{background:#d6dfd4 url(assets/images/splash-poster.jpg) center/cover no-repeat}
+#skipSplash,.splash-logo{display:none!important}
