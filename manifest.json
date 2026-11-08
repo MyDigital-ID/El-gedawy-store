@@ -1,0 +1,24 @@
+{
+  "name": "الجداوي للمنظفات و مستلزمات العناية الشخصية",
+  "short_name": "الجداوي",
+  "description": "علامة الجودة و المنتجات الأصلية و المعتمدة. تسوق الآن أفضل مستلزمات المنظفات والعناية الشخصية.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#03045e",
+  "theme_color": "#0077b6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

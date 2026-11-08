@@ -1,0 +1,20 @@
+{
+  "banner": "assets/images/banner.jpg",
+  "categories": {},
+  "offers": [
+    {
+      "title": "عرض سائل الصحون",
+      "desc": "سائل + إسفنجة + سلك ستانلس",
+      "price": 50,
+      "oldPrice": 65,
+      "img": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=500"
+    },
+    {
+      "title": "عرض صابون ديتول",
+      "desc": "3 قطع صابون 115 جم",
+      "price": 75,
+      "oldPrice": 90,
+      "img": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=500"
+    }
+  ]
+}

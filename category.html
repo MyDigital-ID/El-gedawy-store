@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>الجداوي - المنتجات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #f8f9fa; margin: 0; padding: 0; padding-bottom: 90px; }
+        .category-page-header { background: #ffffff; padding: 15px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        #categoryTitle { font-size: 1.2rem; color: #03045e; margin: 0; text-align: center; flex-grow: 1; font-family: 'Cairo', sans-serif;}
+        
+        .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
+        .product-item { background: #ffffff; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .product-item h3 { font-size: 0.9rem; margin-bottom: 10px; color: #333333; min-height: 40px; line-height: 1.4; font-family: 'Cairo', sans-serif;}
+        .product-item .price { font-weight: bold; color: #f7931e; margin-bottom: 10px; font-size: 1.1rem; font-family: 'Cairo', sans-serif;}
+        .product-item button { background: #f7931e; color: #fff; border: none; padding: 10px; border-radius: 5px; width: 100%; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: bold; transition: 0.2s;}
+        .product-item button:active { background: #03045e; }
+        
+        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    </style>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="الجداوي">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+    <!-- زرار الرجوع العائم (أيقونة البيت) -->
+    <a href="index.html?splash=1" style="position: fixed; top: 50%; right: 15px; transform: translateY(-50%); width: 55px; height: 55px; background-color: #f7931e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 99999; border: 2px solid white;">
+        🏠
+    </a>
+
+    <header class="category-page-header">
+        <div style="width: 45px;"></div> 
+        <h2 id="categoryTitle">جاري التحميل...</h2>
+        <button id="cartBtn" style="background:#f7931e;color:#fff;border:0;padding:8px 14px;border-radius:8px;font-size:20px;cursor:pointer">🛒 <small id="cart-count">0</small></button>
+    </header>
+
+    <div id="productsGrid" class="products-grid">
+        <!-- المنتجات هتظهر هنا -->
+    </div>
+
+    <footer class="site-footer"><a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener" aria-label="MyDigital-ID"><svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="#f7931e" stroke-width="1.6" stroke-linecap="round"><path d="M12 3a8 8 0 0 0-8 8v1"/><path d="M12 6a5 5 0 0 0-5 5c0 3 .5 5.5 1.5 8"/><path d="M12 9a2 2 0 0 0-2 2c0 3 .3 6 1.5 9"/><path d="M16 12c0 3-.4 6-1.5 8.5"/><path d="M20 11a8 8 0 0 0-3-6.2"/><path d="M19.5 14c0 2-.4 4-1 5.5"/><path d="M12 12v1c0 2 .2 4 .8 6"/></svg></a><div>جميع الحقوق محفوظة © <a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener">MyDigital-ID</a></div><small>MyDigital-ID.github.io</small></footer>
+    <script src="foam.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryId = urlParams.get('id') || 'soap'; 
+            const titleElement = document.getElementById('categoryTitle');
+            const productsGrid = document.getElementById('productsGrid');
+
+            fetch('products.json')
+                .then(response => {
+                    if(!response.ok) throw new Error("ملف JSON غير موجود");
+                    return response.json();
+                })
+                .then(data => {
+                    const categoryData = data[categoryId];
+                    if (!categoryData) {
+                        titleElement.innerText = "قسم غير موجود";
+                        productsGrid.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>عذراً، هذا القسم قيد التحديث.</p>";
+                        return;
+                    }
+                    
+                    titleElement.innerText = categoryData.title;
+                    productsGrid.innerHTML = "";
+                    
+                    categoryData.products.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'product-item';
+                        card.innerHTML = `
+                            ${product.image ? `<img class="p-img" src="${product.image}" loading="lazy" alt="">` : ''}
+                            <h3>${product.name}</h3>
+                            <div class="price">${product.price} <span>ج.م</span>${product.oldPrice>product.price?` <s class="old">${product.oldPrice}</s> <em class="off">-${Math.round((1-product.price/product.oldPrice)*100)}%</em>`:''}</div>
+                            <button onclick="addToCart(${product.code}, '${product.name.replace(/'/g, "\\'")}', ${product.price})">إضافة للسلة</button>
+                        `;
+                        productsGrid.appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error("خطأ:", error);
+                    titleElement.innerText = "خطأ في التحميل";
+                    productsGrid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:red;'>تأكد من وجود ملف products.json في نفس المجلد.</p>";
+                });
+
+        });
+    </script>
+<script>
+    if(history.length<2){history.pushState(null,'');window.addEventListener('popstate',()=>location.replace('index.html'))}
+    </script>
+</body>
+</html>

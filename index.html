@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- 1. تعريف الموقع لمحركات البحث (SEO) -->
+    <title>الجداوي للمنظفات و مستلزمات العنايه الشخصيه | علامة الجودة و المنتجات الأصلية</title>
+    <meta name="description" content="الجداوي للمنظفات و مستلزمات العنايه الشخصيه. علامة الجودة و المنتجات الأصلية و المعتمدة. تسوق الآن أفضل مستلزمات المنظفات والعناية الشخصية بأسعار تنافسية.">
+    <meta name="keywords" content="الجداوي, منظفات, مستلزمات منزلية, عناية شخصية, صابون, شامبو, مناديل, مبيدات, تسوق أونلاين, الجودة, المنتجات الأصلية">
+    <meta name="author" content="الجداوي">
+
+    <!-- 2. إعدادات المشاركة على السوشيال ميديا (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="الجداوي">
+    <meta property="og:title" content="الجداوي للمنظفات و مستلزمات العنايه الشخصيه">
+    <meta property="og:description" content="علامة الجودة و المنتجات الأصلية و المعتمدة. ترجمنا خبرة السنين إلى واقع عملي من خلال انتقاء أجود الخامات.">
+    <meta property="og:image" content="assets/images/banner.jpg"> 
+    <meta property="og:url" content="index.html"> 
+    
+    <!-- إعدادات تويتر (Twitter Cards) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الجداوي للمنظفات و مستلزمات العنايه الشخصيه">
+    <meta name="twitter:description" content="علامة الجودة و المنتجات الأصلية و المعتمدة.">
+    <meta name="twitter:image" content="assets/images/banner.jpg">
+
+    <!-- 3. ربط ملف PWA (manifest) -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- 4. ربط الملفات والمكتبات (مسارات نسبية) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="الجداوي">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+</head>
+<body>
+
+    <!-- 1. شاشة البداية -->
+    <div id="splash-screen"><div class="splash-logo">الجداوي</div><video id="splashVid" src="assets/videos/splash.mp4" autoplay muted playsinline></video><button id="skipSplash">تخطي ⏭</button></div>
+
+    <!-- 2. خلفية الفقاعات -->
+    <div class="bubbles-container">
+        <div class="bubble blue"></div><div class="bubble blue"></div><div class="bubble blue"></div>
+        <div class="bubble blue"></div><div class="bubble blue"></div><div class="bubble blue"></div>
+        <div class="bubble orange"></div><div class="bubble orange"></div>
+        <div class="bubble yellow"></div><div class="bubble yellow"></div>
+    </div>
+
+    <!-- 3. الهيدر (البانر + الأزرار) -->
+    <header class="main-header">
+        <img src="assets/images/banner.jpg" alt="الجداوي للمنظفات" class="banner-img" onerror="this.src='https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=800&auto=format&fit=crop'">
+        
+        <div class="header-actions">
+            <button id="menuBtn" class="action-btn">☰</button>
+            <button id="cartBtn" class="action-btn cart-btn">
+                🛒 <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 4. شريط البحث -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+    </div>
+
+    <!-- 5. قسم الصور المميزة -->
+    <section class="featured-section">
+        <h2 class="section-title">الصور المميزة</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&auto=format&fit=crop" alt="منتج">
+                        <h3>برسيل جل 3 كجم</h3>
+                        <span>270 ج.م</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop" alt="منتج">
+                        <h3>ديتول 950 مل</h3>
+                        <span>75 ج.م</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1610555356070-d0efb6505f81?w=500&auto=format&fit=crop" alt="منتج">
+                        <h3>شامبو صن سيلك</h3>
+                        <span>90 ج.م</span>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 6. أقسام المنتجات -->
+    <section class="categories-section">
+        <h2 class="section-title">تسوق حسب القسم</h2>
+        <div class="categories-grid" id="categoriesGrid">
+            <!-- الجافاسكريبت هيملا المكان ده -->
+        </div>
+    </section>
+
+    <!-- 7. قسم العروض والخصومات -->
+    <section class="offers-section">
+        <h2 class="section-title">عروض وخصومات</h2>
+        <div class="swiper offersSwiper">
+            <div class="swiper-wrapper">
+                <!-- العروض هتتحدث أوتوماتيك من site-data.json -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 8. القائمة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="closeMenu">✕</button>
+        <div class="sidebar-content">
+            <h2>الجداوي</h2>
+            <p class="sidebar-desc">ترجمنا خبرة السنين في مجال المنظفات المنزلية ومستلزمات العناية الشخصية، إلى واقع عملي من خلال انتقاء أجود الخامات والمنتجات التي تلبي احتياجات كل بيت.</p>
+            <div class="contact-info">
+                <p>📞 واتساب: <a href="https://wa.me/201001860754">201001860754</a></p>
+                <p>☎️ أرضي: 3577674</p>
+                <p>📍 <a href="https://maps.google.com/?q=31.252441,29.978169" target="_blank">موقعنا على الخريطة</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- مكتبة Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- سكربتات الموقع -->
+    <footer class="site-footer"><a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener" aria-label="MyDigital-ID"><svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="#f7931e" stroke-width="1.6" stroke-linecap="round"><path d="M12 3a8 8 0 0 0-8 8v1"/><path d="M12 6a5 5 0 0 0-5 5c0 3 .5 5.5 1.5 8"/><path d="M12 9a2 2 0 0 0-2 2c0 3 .3 6 1.5 9"/><path d="M16 12c0 3-.4 6-1.5 8.5"/><path d="M20 11a8 8 0 0 0-3-6.2"/><path d="M19.5 14c0 2-.4 4-1 5.5"/><path d="M12 12v1c0 2 .2 4 .8 6"/></svg></a><div>جميع الحقوق محفوظة © <a href="https://MyDigital-ID.github.io" target="_blank" rel="noopener">MyDigital-ID</a></div><small>MyDigital-ID.github.io</small></footer>
+    <script src="foam.js"></script>
+    <script src="cart.js"></script>
+    <script src="site-data-loader.js"></script>
+    <script src="main.js"></script>
+
+    <!-- تسجيل الـ Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
