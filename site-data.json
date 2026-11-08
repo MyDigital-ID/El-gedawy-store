@@ -1,6 +1,4 @@
 {
-  "banner": "assets/images/banner.jpg",
-  "categories": {},
   "offers": [
     {
       "title": "عرض سائل الصحون",
@@ -15,6 +13,27 @@
       "price": 75,
       "oldPrice": 90,
       "img": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=500"
+    }
+  ],
+  "categories": {
+    "tissues": "assets/uploads/cat-tissues-mw7xznq3.jpg"
+  },
+  "banner": "assets/images/banner.jpg",
+  "featured": [
+    {
+      "title": "برسيل جل 3 كجم",
+      "price": 270,
+      "img": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&auto=format&fit=crop"
+    },
+    {
+      "title": "ديتول 950 مل",
+      "price": 75,
+      "img": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop"
+    },
+    {
+      "title": "شامبو صن سيلك",
+      "price": 90,
+      "img": "https://images.unsplash.com/photo-1610555356070-d0efb6505f81?w=500&auto=format&fit=crop"
     }
   ]
 }
