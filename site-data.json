@@ -1,6 +1,4 @@
 {
-  "banner": "assets/images/banner.jpg",
-  "categories": {},
   "offers": [
     {
       "title": "عرض سائل الصحون",
@@ -16,5 +14,9 @@
       "oldPrice": 90,
       "img": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=500"
     }
-  ]
+  ],
+  "categories": {
+    "tissues": "assets/uploads/cat-tissues-mw78u0l4.jpg"
+  },
+  "banner": "assets/images/banner.jpg"
 }
