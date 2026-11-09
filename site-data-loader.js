@@ -12,7 +12,7 @@ async function loadSiteData(){
   if(data.featured&&data.featured.length){
    const w=document.querySelector('.mySwiper .swiper-wrapper'),sw=window.featSwiper;
    if(w){if(sw&&sw.loopDestroy)sw.loopDestroy();
-    w.innerHTML=data.featured.map(f=>`<div class="swiper-slide"><div class="product-card"><img src="${esc(f.img)}" alt=""><h3>${esc(f.title)}</h3><span>${esc(f.price)} ج.م</span></div></div>`).join('');
+    w.innerHTML=data.featured.map(f=>`<div class="swiper-slide"><div class="product-card"><img src="${esc(f.img)}" alt=""><h3>${esc(f.title)}</h3>${f.showPrice===true?`<span>${esc(f.price)} ج.م</span>`:''}</div></div>`).join('');
     if(sw){if(sw.loopCreate)sw.loopCreate();sw.update();if(sw.slideToLoop)sw.slideToLoop(0,0)}}
   }
   if(data.offers&&data.offers.length){
