@@ -6,6 +6,13 @@
       "price": 140,
       "oldPrice": 148,
       "img": "assets/uploads/offer-0-mw9c6lar.jpg"
+    },
+    {
+      "title": "عرض جديد",
+      "desc": "",
+      "price": 0,
+      "oldPrice": 0,
+      "img": "assets/uploads/offer-1-mw9dmfm7.jpg"
     }
   ],
   "categories": {
