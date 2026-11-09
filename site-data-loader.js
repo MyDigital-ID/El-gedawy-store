@@ -9,12 +9,15 @@ async function loadSiteData(){
   const data=await r.json();window.siteData=data;
   if(data.banner){const b=document.querySelector('.banner-img');if(b)b.src=data.banner}
   applyCats();
-  if(data.featured&&data.featured.length){
-   const w=document.querySelector('.mySwiper .swiper-wrapper'),sw=window.featSwiper;
-   if(w){if(sw&&sw.loopDestroy)sw.loopDestroy();
+  if(data.featured&&data.featured.length){try{
+   const el=document.querySelector('.mySwiper'),w=el&&el.querySelector('.swiper-wrapper');
+   if(w){
+    try{if(window.featSwiper&&window.featSwiper.destroy)window.featSwiper.destroy(true,true)}catch(e){}
+    el.swiper=undefined;
     w.innerHTML=data.featured.map(f=>`<div class="swiper-slide"><div class="product-card"><img src="${esc(f.img)}" alt=""><h3>${esc(f.title)}</h3>${f.showPrice===true?`<span>${esc(f.price)} ج.م</span>`:''}</div></div>`).join('');
-    if(sw){if(sw.loopCreate)sw.loopCreate();sw.update();if(sw.slideToLoop)sw.slideToLoop(0,0)}}
-  }
+    if(typeof Swiper!=='undefined')window.featSwiper=new Swiper('.mySwiper',{effect:'coverflow',grabCursor:true,centeredSlides:true,slidesPerView:'auto',loop:true,coverflowEffect:{rotate:50,stretch:0,depth:100,modifier:1,slideShadows:true},pagination:{el:'.mySwiper .swiper-pagination'},autoplay:{delay:3000,disableOnInteraction:false}});
+   }
+  }catch(e){console.log('featured',e)}}
   if(data.offers&&data.offers.length){
    const w=document.querySelector('.offersSwiper .swiper-wrapper');
    if(w){w.innerHTML='';data.offers.forEach(o=>{const s=document.createElement('div');s.className='swiper-slide';
