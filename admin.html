@@ -110,11 +110,9 @@
     <!-- شاشة الدخول -->
     <div class="container" id="loginScreen">
         <h1>🔐 لوحة تحكم الجداوي</h1>
-        <p style="text-align:center; font-size:14px; color:#aaa;">أدخل بيانات GitHub للدخول</p>
+        <p style="text-align:center; font-size:14px; color:#aaa;">أدخل كلمة السر للدخول</p>
         
-        <input type="text" id="githubUser" placeholder="اسم المستخدم (GitHub Username)">
-        <input type="text" id="githubRepo" placeholder="اسم الريبو (Repository Name)">
-        <input type="password" id="githubToken" placeholder="GitHub Token (Personal Access Token)">
+        <input type="password" id="adminKey" placeholder="كلمة السر">
         
         <button onclick="login()" style="width:100%;">دخول 🚀</button>
         <p id="loginError" style="color: #e63946; text-align: center; margin-top: 10px;"></p>
@@ -175,28 +173,31 @@
     </div>
 
     <script>
-let U='',R='',T='';
+let K='';
+const W='https://gedawy-api.download-my-app.workers.dev';
 const D={products:{},offers:[],categories:{},banner:'',featured:[]},PREV={};
 const DEF_FEAT=[{title:'برسيل جل 3 كجم',price:270,img:'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&auto=format&fit=crop'},{title:'ديتول 950 مل',price:75,img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop'},{title:'شامبو صن سيلك',price:90,img:'https://images.unsplash.com/photo-1610555356070-d0efb6505f81?w=500&auto=format&fit=crop'}];
 const $=id=>document.getElementById(id);
-const api=p=>`https://api.github.com/repos/${U}/${R}/contents/${p}`;
-const H=()=>({Authorization:`token ${T}`,'Content-Type':'application/json'});
-const dec=b=>decodeURIComponent(escape(atob(b.replace(/\n/g,''))));
+const H=()=>({'X-Admin-Key':K,'Content-Type':'application/json'});
 const enc=s=>btoa(unescape(encodeURIComponent(s)));
 const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const src=p=>PREV[p]||p||'';
 const busy=on=>$('busy').classList.toggle('hidden',!on);
-async function getJson(p){const r=await fetch(api(p),{headers:H(),cache:'no-store'});if(!r.ok)return null;return JSON.parse(dec((await r.json()).content))}
-async function put(p,b64,msg){let sha;const g=await fetch(api(p),{headers:H(),cache:'no-store'});if(g.ok)sha=(await g.json()).sha;
- const r=await fetch(api(p),{method:'PUT',headers:H(),body:JSON.stringify(Object.assign({message:msg,content:b64},sha?{sha}:{}))});
+async function getJson(p){const r=await fetch(W+'/file?path='+encodeURIComponent(p),{headers:H(),cache:'no-store'});if(!r.ok)return null;return r.json()}
+async function put(p,b64,msg){
+ const r=await fetch(W+'/file',{method:'PUT',headers:H(),body:JSON.stringify({path:p,content:b64,message:msg})});
  if(!r.ok){let m=r.status;try{m=(await r.json()).message}catch(e){}throw new Error(m)}return r.json()}
 async function login(){
- const u=$('githubUser').value.trim(),r=$('githubRepo').value.trim(),t=$('githubToken').value.trim();
- if(!u||!r||!t){$('loginError').innerText='الرجاء ملء جميع الخانات!';return}
- localStorage.setItem('gh_user',u);localStorage.setItem('gh_repo',r);localStorage.setItem('gh_token',t);
- U=u;R=r;T=t;
+ const k=$('adminKey').value.trim();
+ if(!k){$('loginError').innerText='اكتب كلمة السر!';return}
+ K=k;
+ let pr;try{pr=await fetch(W+'/ping',{headers:H()})}catch(e){$('loginError').innerText='تعذر الاتصال، تأكد من الإنترنت.';return}
+ if(pr.status===401){$('loginError').innerText='كلمة السر غير صحيحة.';return}
+ if(pr.status===429){$('loginError').innerText='محاولات كتير غلط، حاول بعد 15 دقيقة.';return}
+ if(!pr.ok){$('loginError').innerText='فشل الاتصال! حاول مرة أخرى.';return}
+ localStorage.setItem('admin_key',k);
  if(await fetchData()){$('loginScreen').classList.add('hidden');$('dashboardScreen').classList.remove('hidden');renderUI()}
- else $('loginError').innerText='فشل الاتصال! تأكد من البيانات والتوكن.';
+ else $('loginError').innerText='فشل تحميل البيانات! حاول مرة أخرى.';
 }
 async function fetchData(){
  try{
@@ -268,12 +269,14 @@ async function saveAll(silent){
  }catch(e){busy(0);alert('فشل الحفظ: '+e.message)}
 }
 const saveToGithub=()=>saveAll(false);
-function logout(){localStorage.removeItem('gh_token');location.reload()}
+function logout(){localStorage.removeItem('admin_key');location.reload()}
 window.onload=async()=>{
  document.body.insertAdjacentHTML('beforeend','<div id="busy" class="hidden">⏳ جاري الحفظ...</div>');
- const u=localStorage.getItem('gh_user'),r=localStorage.getItem('gh_repo'),t=localStorage.getItem('gh_token');
- if(u&&r&&t){$('githubUser').value=u;$('githubRepo').value=r;$('githubToken').value=t;U=u;R=r;T=t;
-  if(await fetchData()){$('loginScreen').classList.add('hidden');$('dashboardScreen').classList.remove('hidden');renderUI()}}
+ ['gh_user','gh_repo','gh_token'].forEach(x=>localStorage.removeItem(x));
+ const k=localStorage.getItem('admin_key');
+ if(k){K=k;
+  if(await fetchData()){$('loginScreen').classList.add('hidden');$('dashboardScreen').classList.remove('hidden');renderUI()}
+  else localStorage.removeItem('admin_key')}
 };
 </script>
 </body>
