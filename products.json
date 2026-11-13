@@ -171,13 +171,14 @@
       {
         "code": 371,
         "name": "وايت مبللة بوكت",
-        "price": 5,
+        "price": 7,
         "image": "assets/uploads/p-371-mwewxi8g.jpg"
       },
       {
         "code": 372,
         "name": "وايت ايزى باك",
-        "price": 10
+        "price": 10,
+        "image": "assets/uploads/p-372-mwewxyra.jpg"
       },
       {
         "code": 428,
