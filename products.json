@@ -490,7 +490,8 @@
       {
         "code": 160,
         "name": "حلاقة VIP",
-        "price": 5
+        "price": 5,
+        "image": "assets/uploads/p-160-mwgan1l9.jpg"
       },
       {
         "code": 206,
