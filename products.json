@@ -1254,19 +1254,10 @@
         "image": "assets/uploads/p-771-mwlwu4du.jpg"
       },
       {
-        "code": 102,
-        "name": "نيفيا كريم سوفت100 مل",
-        "price": 55
-      },
-      {
-        "code": 103,
-        "name": "نيفيا كريم سوفت200 مل",
-        "price": 95
-      },
-      {
         "code": 769,
         "name": "فريدة معطر اقمشة لتر",
-        "price": 70
+        "price": 70,
+        "image": "assets/uploads/p-769-mwlwuy3d.jpg"
       }
     ]
   },
