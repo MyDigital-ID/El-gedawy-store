@@ -1408,7 +1408,8 @@
       {
         "code": 198,
         "name": "جليد غيار عود ملكى",
-        "price": 130
+        "price": 130,
+        "image": "assets/uploads/p-198-mwm25myk.jpg"
       },
       {
         "code": 223,
