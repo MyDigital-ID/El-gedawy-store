@@ -3911,7 +3911,8 @@
       {
         "code": 747,
         "name": "غيار موب مساحة",
-        "price": 40
+        "price": 40,
+        "image": "assets/uploads/p-747-mwvyo911.jpg"
       }
     ]
   },
