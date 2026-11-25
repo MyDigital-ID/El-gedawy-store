@@ -3766,14 +3766,10 @@
         "image": "assets/uploads/p-386-mwvyg0cz.jpg"
       },
       {
-        "code": 390,
-        "name": "اسكوتش وسط",
-        "price": 30
-      },
-      {
         "code": 444,
         "name": "يد خشب",
-        "price": 20
+        "price": 20,
+        "image": "assets/uploads/p-444-mwvygir9.jpg"
       },
       {
         "code": 622,
