@@ -3360,6 +3360,12 @@
     "title": "شاور جل وعناية بالجسم",
     "products": [
       {
+        "code": 791,
+        "name": "بلو تو بلس",
+        "price": 17,
+        "image": "assets/uploads/p-791-mwxcih0h.jpg"
+      },
+      {
         "code": 790,
         "name": "كير&مور ٧٥ ملل",
         "price": 50,
