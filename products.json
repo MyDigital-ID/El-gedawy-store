@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 784,
+        "name": "اسبيروكي ازرق",
+        "price": 120,
+        "image": "assets/uploads/p-784-mwxcbghw.jpg"
+      },
+      {
         "code": 783,
         "name": "اسبيروكس اصفر",
         "price": 12,
