@@ -2528,6 +2528,12 @@
     "title": "عناية بالشعر",
     "products": [
       {
+        "code": 796,
+        "name": "راكس ويف ١٤٠ جم",
+        "price": 45,
+        "image": "assets/uploads/p-796-mwxd2cam.jpg"
+      },
+      {
         "code": 400,
         "name": "جل اكسلانس 300 جم",
         "price": 30,
