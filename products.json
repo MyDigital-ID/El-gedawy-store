@@ -4094,19 +4094,10 @@
         "image": "assets/uploads/p-388-mwxc2wx5.jpg"
       },
       {
-        "code": 421,
-        "name": "اسبيروكس مزيل اصفر",
-        "price": 120
-      },
-      {
-        "code": 422,
-        "name": "اسبيروكس مزيل ازرق",
-        "price": 120
-      },
-      {
         "code": 455,
         "name": "ريشة الوان",
-        "price": 25
+        "price": 25,
+        "image": "assets/uploads/p-455-mwxc3c3k.jpg"
       },
       {
         "code": 456,
