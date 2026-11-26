@@ -3360,6 +3360,12 @@
     "title": "شاور جل وعناية بالجسم",
     "products": [
       {
+        "code": 789,
+        "name": "بلوب كوانيا ",
+        "price": 100,
+        "image": "assets/uploads/p-789-mwxcfln7.jpg"
+      },
+      {
         "code": 130,
         "name": "جوى هاندوش روز 250 مل",
         "price": 42,
