@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 785,
+        "name": "باركيتو كبير",
+        "price": 95,
+        "image": "assets/uploads/p-785-mwxcc1ry.jpg"
+      },
+      {
         "code": 784,
         "name": "اسبيروكي ازرق",
         "price": 120,
