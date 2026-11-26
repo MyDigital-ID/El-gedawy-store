@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 781,
+        "name": "جنرال ٧٣٠ مل",
+        "price": 50,
+        "image": "assets/uploads/p-781-mwxc8tyb.jpg"
+      },
+      {
         "code": 776,
         "name": "ماكسيل تواليت روز",
         "price": 50,
