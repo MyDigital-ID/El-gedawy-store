@@ -2528,6 +2528,12 @@
     "title": "عناية بالشعر",
     "products": [
       {
+        "code": 797,
+        "name": "بلوب اكس واكس ١٤٠ جم",
+        "price": 60,
+        "image": "assets/uploads/p-797-mwxd3lwx.jpg"
+      },
+      {
         "code": 796,
         "name": "راكس ويف ١٤٠ جم",
         "price": 45,
