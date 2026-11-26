@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 787,
+        "name": "جنرال حمام ٥٠ مل",
+        "price": 85,
+        "image": "assets/uploads/p-787-mwxcdrvc.jpg"
+      },
+      {
         "code": 786,
         "name": "باركيتو صغير",
         "price": 70,
