@@ -3360,6 +3360,12 @@
     "title": "شاور جل وعناية بالجسم",
     "products": [
       {
+        "code": 792,
+        "name": "ناسيت ٢",
+        "price": 12,
+        "image": "assets/uploads/p-792-mwxcj85q.jpg"
+      },
+      {
         "code": 791,
         "name": "بلو تو بلس",
         "price": 17,
