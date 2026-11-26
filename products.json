@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 782,
+        "name": "اسبىوكس سباركس",
+        "price": 445,
+        "image": "assets/uploads/p-782-mwxc9v3d.jpg"
+      },
+      {
         "code": 781,
         "name": "جنرال ٧٣٠ مل",
         "price": 50,
