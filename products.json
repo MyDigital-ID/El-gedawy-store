@@ -1307,6 +1307,12 @@
     "title": "منظفات أطباق ومطبخ",
     "products": [
       {
+        "code": 788,
+        "name": "بريل صاروخ",
+        "price": 75,
+        "image": "assets/uploads/p-788-mwxcel91.jpg"
+      },
+      {
         "code": 195,
         "name": "فيبا 4 لتر ليمون",
         "price": 180,
