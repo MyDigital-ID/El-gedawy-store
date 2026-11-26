@@ -410,18 +410,6 @@
         "image": "assets/uploads/p-675-mwgah8a4.jpg"
       },
       {
-        "code": 711,
-        "name": "راكس ويف140جم",
-        "price": 45,
-        "image": "assets/uploads/p-711-mwgahipt.jpg"
-      },
-      {
-        "code": 713,
-        "name": "بلوب اكس واكس140مل",
-        "price": 60,
-        "image": "assets/uploads/p-713-mwgahuyr.jpg"
-      },
-      {
         "code": 721,
         "name": "ليدى سبيد استيك",
         "price": 200,
@@ -582,18 +570,6 @@
         "name": "صوفى الترا عرض 14 ف",
         "price": 120,
         "image": "assets/uploads/p-434-mwki2bmq.jpg"
-      },
-      {
-        "code": 477,
-        "name": "5خمسات اسبراى صغير",
-        "price": 38,
-        "image": "assets/uploads/p-477-mwki2m5o.jpg"
-      },
-      {
-        "code": 478,
-        "name": "5خمسات اسبراى كبير",
-        "price": 60,
-        "image": "assets/uploads/p-478-mwki2yyb.jpg"
       },
       {
         "code": 520,
@@ -2186,6 +2162,12 @@
   "incense": {
     "title": "بخور وعطور",
     "products": [
+      {
+        "code": 794,
+        "name": "٥ خمسات صغير ",
+        "price": 38,
+        "image": "assets/uploads/p-794-mwxcy4jc.jpg"
+      },
       {
         "code": 397,
         "name": "برفان ديزنى",
