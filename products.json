@@ -2163,6 +2163,12 @@
     "title": "بخور وعطور",
     "products": [
       {
+        "code": 795,
+        "name": "٥ خمسات كبير",
+        "price": 60,
+        "image": "assets/uploads/p-795-mwxczib2.jpg"
+      },
+      {
         "code": 794,
         "name": "٥ خمسات صغير ",
         "price": 38,
