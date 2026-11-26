@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 783,
+        "name": "اسبيروكس اصفر",
+        "price": 12,
+        "image": "assets/uploads/p-783-mwxcaqpg.jpg"
+      },
+      {
         "code": 782,
         "name": "اسبىوكس سباركس",
         "price": 445,
