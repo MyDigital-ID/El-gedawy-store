@@ -3360,6 +3360,12 @@
     "title": "شاور جل وعناية بالجسم",
     "products": [
       {
+        "code": 790,
+        "name": "كير&مور ٧٥ ملل",
+        "price": 50,
+        "image": "assets/uploads/p-790-mwxcgwsl.jpg"
+      },
+      {
         "code": 789,
         "name": "بلوب كوانيا ",
         "price": 100,
