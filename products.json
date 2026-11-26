@@ -649,6 +649,12 @@
     "title": "منظفات عامة وأرضيات",
     "products": [
       {
+        "code": 786,
+        "name": "باركيتو صغير",
+        "price": 70,
+        "image": "assets/uploads/p-786-mwxccx6s.jpg"
+      },
+      {
         "code": 785,
         "name": "باركيتو كبير",
         "price": 95,
