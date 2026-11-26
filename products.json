@@ -200,6 +200,12 @@
     "title": "مزيلات عرق وعناية شخصية",
     "products": [
       {
+        "code": 793,
+        "name": "رول زاك ٥٠ مل",
+        "price": 65,
+        "image": "assets/uploads/p-793-mwxck49x.jpg"
+      },
+      {
         "code": 47,
         "name": "نيفيا بلية 50 مل بيرل اند بيوتى اسود",
         "price": 75,
