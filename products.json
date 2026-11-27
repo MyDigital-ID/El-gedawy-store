@@ -3999,6 +3999,12 @@
     "title": "أثاث ومستلزمات بلاستيكية",
     "products": [
       {
+        "code": 798,
+        "name": "كرسى مورانو ",
+        "price": 250,
+        "image": "assets/uploads/p-798-mwypxtgh.jpg"
+      },
+      {
         "code": 764,
         "name": "كرسي مقص روفانيو",
         "price": 250,
