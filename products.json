@@ -4082,6 +4082,17 @@
     "title": "مستلزمات متنوعة",
     "products": [
       {
+        "code": 802,
+        "name": "منتج جديد",
+        "price": 0
+      },
+      {
+        "code": 801,
+        "name": "طبق مدور بلاستيك ",
+        "price": 3,
+        "image": "assets/uploads/p-801-mwyq56tw.jpg"
+      },
+      {
         "code": 800,
         "name": "مشابك بلاستيك",
         "price": 15,
