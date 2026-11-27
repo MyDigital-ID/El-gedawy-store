@@ -4082,6 +4082,17 @@
     "title": "مستلزمات متنوعة",
     "products": [
       {
+        "code": 800,
+        "name": "منتج جديد",
+        "price": 0
+      },
+      {
+        "code": 799,
+        "name": "بخاخ بلاستيك",
+        "price": 20,
+        "image": "assets/uploads/p-799-mwyq3wz8.jpg"
+      },
+      {
         "code": 780,
         "name": "اسكوتش وسط",
         "price": 30,
