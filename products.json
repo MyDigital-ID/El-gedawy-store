@@ -4083,8 +4083,9 @@
     "products": [
       {
         "code": 800,
-        "name": "منتج جديد",
-        "price": 0
+        "name": "مشابك بلاستيك",
+        "price": 15,
+        "image": "assets/uploads/p-800-mwyq4h51.jpg"
       },
       {
         "code": 799,
